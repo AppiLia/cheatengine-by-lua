@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Auto Assemble script"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+
+{$asm}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"gtutorial-x86_64.exe"+2DA0) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+
+lea rsp,[rsp-28]
+{$lua}
+print(process)
+print('"gtutorial-x86_64.exe"+2DA0')
+
+{$asm}
+
+exit:
+jmp returnhere
+
+"gtutorial-x86_64.exe"+2DA0:
+jmp newmem
+returnhere:
+
+
+
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"gtutorial-x86_64.exe"+2DA0:
+lea rsp,[rsp-28]
+//Alt: db 48 8D 64 24 D8
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>
