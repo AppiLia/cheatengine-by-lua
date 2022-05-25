@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"#002 Lua 제어문 - Auto Assemble Script"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"AAS if문 #1"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_name = 'AAS if문 #1'
+local script_title = '주제 : IF 제어 #1'
+--
+print ( '' )
+print ( script_title )
+print ( '&gt; if ~cmp then ~code end' )
+print ( '&gt; if a ~= b then ~print end &gt; a=0 b=1 &gt; print~~')
+
+
+print ('')
+local a = 0
+local b = 1
+if a ~= b then
+  print( 'a:' .. a .. ' '.. 'b:'.. b )
+end
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"AAS if문 #2"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_name = 'AAS if문 #2'
+local script_title = '주제 : IF 제어 #2'
+--
+print ( '' )
+print ( script_title )
+print ( '&gt; if ~cmp then ~code else ~code end' )
+print ( '&gt; if a == b then ~print else ~print end &gt; a=0 b=1 &gt; print~~')
+
+
+print ('')
+local a = 0
+local b = 1
+if a == b then
+  print ( a .. ' == ' .. b )
+else
+  print ( a .. ' and ' .. b .. ' is not equal ' )
+end
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"AAS if문 #3"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_name = 'AAS if문 #3'
+local script_title = '주제 : IF 제어 #3'
+--
+print ( '' )
+print ( script_title )
+print ( '&gt; if ~cmp then ~code elseif ~cmp then ~code else ~code end' )
+print ( '&gt; if a~=b then ~print elseif a==1 then ~print else ~print end &gt; a=0 b=1 &gt; print~~' )
+
+
+print ('')
+local a = 0
+local b = 1
+if a ~= b then
+  a = a + 1
+  print ( 'a= ' .. a ,'b= ' .. b )
+elseif a == 1 then
+  print ( a , b )
+else
+  print ( string.format('%d',a ) )
+end
+print( '' )
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"AAS while #1"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = '주제 : While #1'
+local script_name = 'AAS while #1'
+print ( ' ' )
+print ( script_title )
+print ( '&gt; while ~cmp do ~code end ~code' )
+print ( '&gt; while a&lt;10 do ~code end ~print &gt; a=0 b=0 &gt; a=a+1 b=b+a &gt; print~~' )
+
+
+print ('')
+-- 지역 변수 선언
+local a = 0
+local b = 0
+-- while 제어문
+while a &lt; 10 do
+  a = a + 1
+  b = b + a
+end
+print ( 'a + 1 = ' .. a .. ' / b + 1 =' .. string.format('%4d',b )  )
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"AAS repeat #1"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+-- 지역 변수 선언
+local script_title = '주제 : Repeat #1'
+local script_name = 'AAS repeat #1'
+print ( ' ' )
+print ( script_title )
+print ( '&gt; Repeat ~code until ~cmp ~print' )
+print ( '&gt; Repeat ~code until a==10 ~print &gt; a=0 b=10 &gt; a=a+1 b=b+a &gt; print~~' )
+
+
+print ('')
+-- 지역 변수 설정
+local a = 0
+local b = 0
+-- repeat 제어문
+repeat
+a = a + 1
+b = b + a
+until a == 10
+print ( string.format('%06d',b))
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"AAS For 제어문 #1"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = 'Title : For 제어문 #1'
+local script_name = 'AAS For 제어문 #1'
+print ('')
+print ( script_title )
+print ('&gt; for i=a,b do ~code end &gt; a=1,b=5 &gt; print i')
+
+
+print ('')
+-- 지역 변수 선언
+local a = 1
+local b = 5
+
+for i=a,b do
+print ( i )
+end -- out : 1 2 3 4 5
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1000
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+tiemr.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"AAS For 제어문 #2"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = '주제 : For 제어문 #2'
+local script_name = 'AAS For 제어문 #2'
+print ( '' )
+print ( script_title )
+print ('&gt; for i=a,b,(step:2) do ~code end &gt; a=1,b=6 &gt; print i')
+
+
+print ('')
+-- 지역 변수 선언
+local a = 1
+local b = 6
+
+for i=a,b,2 do
+print (i)
+end -- out : 1 3 5
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"AAS For 제어문 #3"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = '주제 : For 제어문 #3'
+local script_name = 'AAS For 제어문 #3'
+print ('')
+print ( script_title )
+print ('&gt; for i=a,b,(step:0.1) do ~code end &gt; a=1.5,b=2 &gt; print i')
+
+
+print ('')
+-- 지역 변수 선언
+local a = 1.5
+local i = 0
+
+for i=a,2,0.1 do
+print (i)
+end --output : 1.5 1.6 1.7 1.8 1.9
+-- 증가치를 없앨때 테스트
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+tiemer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"AAS For pairs #1"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+--local script_title = '주제 : For pairs 제어문'
+local script_name = 'AAS For pairs #1'
+print ( '' )
+--print ( script_title )
+
+
+
+--
+print ( '' )
+print ( '주제 : For pairs 제어문 #1' )
+print("&gt; local t1 = { '1' , 123 , 'abc' , pi = 3.14 }")
+print ('&gt; for key,value in pairs(table) do ~code end')
+print ('&gt; for k,v in pairs(t1) do ~code end')
+
+print ('')
+local t1 = { '1' , pi2=3.14 , 123 , 'abc' , pi1 = 3.14 }
+for k,v in pairs(t1) do
+print ( k , v )
+end
+--
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"AAS For pairs #2"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+--local script_title = '주제 : For pairs 제어문'
+local script_name = 'AAS For pairs #2'
+print ( '' )
+--print ( script_title )
+
+
+
+--
+print ('')
+print ( '주제 : For pairs 제어문 #2' )
+print("&gt; local t2 = { '1' , 123 , 'abc' , 'a' }")
+print ('&gt; for key,value in pairs(table) do ~code end')
+print ('&gt; for k,v in pairs(t2) do ~code end')
+
+print ('')
+local t2 = { '1' , 123 , 'abc' , 'a' }
+for k,v in pairs(t2) do
+print ( k , v )
+end
+--
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"AAS For ipairs #1"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = '주제 : For ipairs 제어문'
+local script_name = 'AAS For ipairs #1'
+print ( '' )
+--print ( script_title )
+
+
+
+--
+print ( '' )
+print ( '주제 : For ipairs 제어문 #1' )
+print("local i1 = { '1' , pi = 3.14 , 123 , 'abc' }")
+print ('&gt; for index,value in pairs(table) do ~code end')
+print ('&gt; for i,v in ipairs(i1) do ~code end')
+
+print ('')
+local i1 = { '1' , pi = 3.14 , 123 , 'abc' }
+for i,v in ipairs(i1) do
+print ( i , v )
+end
+--
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"AAS For ipairs #2"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = '주제 : For ipairs 제어문'
+local script_name = 'AAS For ipairs #2'
+print ( '' )
+--print ( script_title )
+
+
+
+--
+print ( '' )
+print ( '주제 : For ipairs 제어문 #2' )
+print("local i2 = { '1' , 123 , 'abc' , 'a' }")
+print ('&gt; for index,value in pairs(table) do ~code end')
+print ('&gt; for i,v in ipairs(i2) do ~code end')
+
+print ( '' )
+local i2 = { '1' , 123 , 'abc' , 'a' }
+for i,v in ipairs(i2) do
+print ( i , v )
+end
+--
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1500
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"AAS For next #1"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = '주제 : For next 제어문'
+local script_name = 'AAS For next #1'
+print ( ' ' )
+--
+
+
+--
+print ('')
+print ('주제 : For next 제어문 #1')
+print ('&gt; for key, value in next, table, number do ~code end')
+print ('&gt; for k, v in next, n1, 1 do ~print(k,v) end')
+
+print ('')
+local n1 = { '1' , 123 , 'abc' , pi = 3.14 }
+for k,v in next,n1,1 do
+print ( k , v )
+end
+--
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1000
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"AAS For next #2"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = '주제 : For next 제어문'
+local script_name = 'AAS For next #2'
+print ( ' ' )
+--
+
+
+--
+print ('')
+print ('주제 : For next 제어문 #2')
+print ("local n2 = { '1' , 123 , 'abc' , 'a' }")
+print ('&gt; for key, value in next, table, nil do ~code end')
+print ('&gt; for k , v in next, n2, nil do ~print(k,v) end')
+
+print ('')
+local n2 = { '1' , 123 , 'abc' , 'a' }
+for k,v in next,n2,nil do
+print ( k , v )
+end
+--
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1000
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"AAS Goto"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--//code from here to '[DISABLE]' will be used to enable the cheat
+local script_title = '주제 : goto ::continue::'
+local script_name = 'AAS Goto'
+print ( ' ' )
+--print ( script_title )
+
+
+
+--
+print ('')
+print ('주제 : goto ::continue::')
+print ('&gt; for i=a, b do ~code ::continue:: end')
+print ('&gt; ~coding &gt; goto continue 삽입')
+
+print ('')
+-- 지역 변수 선언
+local a = 0
+local b = 5
+for i=a, b do
+
+  if i&gt; 1 and i &lt; 4 then
+  goto continue
+  end
+
+  print( i )
+
+  ::continue::
+
+end
+--
+
+
+
+-- auto disable
+script_end = nil
+local timer = nil
+local interval = 1000
+local tick = 0
+local tickMax = 5
+--
+function mytime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  script_end = nil
+  end
+  if tick &gt; 0 and tick &lt; tickMax then
+  script_end = getAddressList().getMemoryRecordByDescription(script_name)
+  script_end.Active =false
+  script_end = nil
+  timer.destroy()
+  end
+  tick = tick + 1
+end
+--
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.OnTimer = mytime
+-- auto disable
+[DISABLE]
+--//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
