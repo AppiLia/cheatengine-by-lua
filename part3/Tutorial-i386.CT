@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"No description"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>8 Bytes</VariableType>
+      <Address>017C1A18</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>""Tutorial-i386.exe"+2566B0"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"Tutorial-i386.exe"+2566B0</Address>
+      <Offsets>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Auto Assemble script"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+
+[ENABLE]
+--readBytes , readSmallInteger, readInteger, readQword, readFloat, readDouble
+
+local p_name = '["Tutorial-i386.exe"+2566B0]+0'
+local plus = '+1'
+
+print('')
+print( readBytes(p_name))
+print( readBytes(p_name..plus))
+print( readBytes(p_name..'+40'))
+print(readSmallInteger(p_name))
+print(readInteger(p_name))
+print('8byte')
+for i=0, 7 do
+print(readBytes(p_name .. '+' .. tostring(i)))
+end
+
+
+[DISABLE]
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
