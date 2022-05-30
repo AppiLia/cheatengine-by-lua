@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Start Pointer Address &amp; Value"</Description>
+      <LastState Value="24296096" RealAddress="006426B0"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"Tutorial-i386.exe"+2426B0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Pointer Address &amp; Value"</Description>
+      <LastState Value="100" RealAddress="0172BAA0"/>
+      <VariableType>8 Bytes</VariableType>
+      <Address>"Tutorial-i386.exe"+2426B0</Address>
+      <Offsets>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Auto Assemble script"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+--tutorial step 6 [ 098712 ]
+[ENABLE]
+local address = '["Tutorial-i386.exe"+2426B0]'
+--local address = '006426b0'
+local bytePlus = '+1'
+local byteSum = address .. bytePlus
+local qword_num = 13452985102348532945
+-- writeQword(address,qword_num)
+-- readBytes, readSmallInteger, readInteger, readQword, readFloat, readDouble, readString
+-- writeBytes , writeSmallInter, writeInteger, writeQword, writeFloat, writeDouble, writeString
+
+print('')
+print('&gt; Decimal Data')
+print(string.format('%8d ',readBytes(address)) ..  'readBytes ')
+print(string.format('%8d ',readBytes(address .. bytePlus )) ..  'readBytes +1 ')
+print(string.format('%8d ',readSmallInteger(address)) ..  'readSmallInteger ')
+print(string.format('%8d ',readInteger(address)) ..  'readInteger ')
+print(string.format('%8d ',readQword(address)) ..  'readQword ')
+print('')
+--writeBytes(address,200)
+--writeBytes(address,255)
+--writeSmallInteger(address,30000)
+--writeSmallInteger(address,65536)
+--writeInteger(address,70000)
+--writeInteger(address,qword_num)
+--[[
+print(string.format('%8d ',readBytes(address)) ..  'readBytes ')
+print(string.format('%8d ',readBytes(address .. bytePlus )) ..  'readBytes +1 ')
+print(string.format('%8d ',readSmallInteger(address)) ..  'readSmallInteger ')
+print(string.format('%8d ',readInteger(address)) ..  'readInteger ')
+print(string.format('%8d ',readQword(address)) ..  'readQword ')
+
+--]]
+
+
+
+[DISABLE]
+--[[
+print('&gt; for control - decimal view 8 bytes')
+for i=0, 7 do
+print('DEC Byte= ' .. address .. ' +' .. i .. ' = ' .. readBytes(address .. '+' .. tostring(i) ) )
+end
+
+print('&gt; for control - hexadecimal view 8 bytes')
+for i=0, 7 do
+print( 'HEX Byte= ' .. address .. ' +'.. i .. ' =  ' .. string.format('%x', readBytes(address .. '+' .. tostring(i) )) )
+end
+--]]
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
