@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"gtutorial-x86_64.exe"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[enable]
+process_name = getAddressList().getMemoryRecord(0)
+p_dec = process_name.Description
+
+local timer = nil
+local interval = 1000
+local tick = 0
+local tickMax = 2
+
+function myTime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  process_name.Active = false
+  end -- 최대 시간 이후 타임 종료
+  if getProcessIDFromProcessName(p_dec) ~= nil then
+    if process == p_dec then
+    process_name.Active = false
+    timer.destroy()
+    else
+    timer.destroy()
+      openProcess(p_dec)
+      process_name.Active = false
+    end
+  end
+tick = tick + 1
+end -- function end
+
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.onTimer = myTime
+
+[disable]
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Notepads.exe"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[enable]
+process_name = getAddressList().getMemoryRecord(1)
+p_dec = process_name.Description
+
+local timer = nil
+local interval = 1000
+local tick = 0
+local tickMax = 2
+
+function myTime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  process_name.Active = false
+  end -- 최대 시간 이후 타임 종료
+  if getProcessIDFromProcessName(p_dec) ~= nil then
+    if process == p_dec then
+    process_name.Active = false
+    timer.destroy()
+    else
+    timer.destroy()
+      openProcess(p_dec)
+      process_name.Active = false
+    end
+  end
+tick = tick + 1
+end -- function end
+
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.onTimer = myTime
+
+[disable]
+
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"bdcam.exe"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[enable]
+process_name = getAddressList().getMemoryRecord(2)
+p_dec = process_name.Description
+
+local timer = nil
+local interval = 1000
+local tick = 0
+local tickMax = 2
+
+function myTime(timer)
+  if tickMax &gt; 0 and tick &gt;= tickMax then
+  timer.destroy()
+  process_name.Active = false
+  end -- 최대 시간 이후 타임 종료
+  if getProcessIDFromProcessName(p_dec) ~= nil then
+    if process == p_dec then
+    process_name.Active = false
+    timer.destroy()
+    else
+    timer.destroy()
+      openProcess(p_dec)
+      process_name.Active = false
+    end
+  end
+tick = tick + 1
+end -- function end
+
+timer = createTimer(getMainForm())
+timer.interval = interval
+timer.onTimer = myTime
+
+[disable]
+
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <LuaScript>print('')
+process_name = getAddressList().getMemoryRecord(0).Description
+print(process_name)
+</LuaScript>
+</CheatTable>
